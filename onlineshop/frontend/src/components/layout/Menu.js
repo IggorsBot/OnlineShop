@@ -8,45 +8,52 @@ class Menu extends Component{
   render(){
     return(
       <Fragment>
+
         <div className="container">
           <div className="row">
-              <div className="col-md-12 col-12 text-center">
+          <div className="col-md-12 col-12 text-center">
+              <ul className="nav navbar-nav navbar-expand-lg justify-content-center mt-3 mb-5">
 
-              <ul className="nav justify-content-center mt-3 mb-5">
                 <li className="nav-item">
                     <Link className="nav-link"
                           to="/shop/category/products">
-                        Продукты
+                        ПРОДУКТЫ
                     </Link>
                 </li>
+
                 <li className="nav-item">
                     <Link className="nav-link"
                           to="/shop/category/books">
-                        Книги
+                        КНИГИ
                     </Link>
                 </li>
+
                 <li className="nav-item">
                     <Link className="nav-link"
                           to="/shop/category/electronics">
-                        Электроника
+                        ЭЛЕКТРОНИКА
                     </Link>
                 </li>
+
                 <li className="nav-item">
                     <Link className="nav-link disabled"
                           to="#">
-                        Одежда и обувь
+                        ОДЕЖДА И ОБУВЬ
                     </Link>
                 </li>
+
                 <li className="nav-item">
                     <Link className="nav-link disabled"
                           to="#">
-                        Дом и сад
+                        ДОМ И САД
                     </Link>
                 </li>
+
               </ul>
             </div>
           </div>
         </div>
+        
       </Fragment>
     )
   }
