@@ -40,9 +40,12 @@ INSTALLED_APPS = [
     'shop',
     'frontend',
     'orders',
+    'corsheaders',
+    'payment',
 ]
 
 MIDDLEWARE = [
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
