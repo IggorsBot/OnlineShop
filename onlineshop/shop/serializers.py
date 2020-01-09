@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import Product, Category
+from .models import Product, Category, Book
 
 class ProductListSerializer(serializers.ModelSerializer):
     class Meta:
@@ -24,8 +24,18 @@ class ProductSerializer(serializers.HyperlinkedModelSerializer):
 
     class Meta:
         model = Product
-        exclude = ['category']
-
+        fields = ['id', 'name', 'price', 'slug']
 
 class CartSerializer(serializers.Serializer):
     cart = serializers.DictField()
+
+
+class BooksListSerializer(serializers.ModelSerializer):
+
+    class Meta(ProductSerializer.Meta):
+        model = Book
+        fields = ProductSerializer.Meta.fields + ['author']
+
+    # class Meta:
+    #     model = Book
+    #     fields = ['id', 'name', 'price', 'image']

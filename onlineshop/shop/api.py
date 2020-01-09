@@ -1,10 +1,10 @@
 from rest_framework import generics
 from rest_framework.generics import get_object_or_404
 from .serializers import CartSerializer, ProductSerializer, CategorySerializer, \
-    ProductListSerializer, ProductDetailSerializer
+    ProductListSerializer, ProductDetailSerializer, BooksListSerializer
 
 from .cart import Cart
-from .models import Product, Category
+from .models import Product, Category, Book
 from rest_framework.response import Response
 from rest_framework import status
 
@@ -74,4 +74,15 @@ class ProductDetailView(generics.GenericAPIView):
         product = Product.objects.get(id=kwargs['id'])
         return Response({
             "product": ProductDetailSerializer(product, context=self.get_serializer_context()).data
+        })
+
+
+class BooksListView(generics.GenericAPIView):
+    serializer_class = BooksListSerializer
+
+    def get(self, request):
+        books = Book.objects.all()
+        serializer = BooksListSerializer(books, many=True)
+        return Response({
+            "books": serializer.data,
         })
