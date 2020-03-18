@@ -26,7 +26,9 @@ class CartAddView(generics.RetrieveUpdateDestroyAPIView):
         serializer = CartSerializer(cart)
         return Response({
             "cart": serializer.data
-        })
+        }).setHeader("Set-Cookie", "HttpOnly;Secure;SameSite=Strict");
+
+
 
     def get(self, request, *args, **kwargs):
         cart = Cart(request)
@@ -39,7 +41,7 @@ class CartAddView(generics.RetrieveUpdateDestroyAPIView):
         serializer = CartSerializer(cart)
         return Response({
             "cart": serializer.data,
-        })
+        }).setHeader("Set-Cookie", "HttpOnly;Secure;SameSite=Strict");
 
     def post(self, request):
         cart = Cart(request)
@@ -50,7 +52,7 @@ class CartAddView(generics.RetrieveUpdateDestroyAPIView):
         serializer = CartSerializer(cart)
         return Response({
             "cart": serializer.data,
-        })
+        }).setHeader("Set-Cookie", "HttpOnly;Secure;SameSite=Strict");
 
 
 class CategoryListView(generics.ListAPIView):
@@ -74,7 +76,7 @@ class ProductDetailView(generics.GenericAPIView):
         product = Product.objects.get(id=kwargs['id'])
         return Response({
             "product": ProductDetailSerializer(product, context=self.get_serializer_context()).data
-        })
+        }).setHeader("Set-Cookie", "HttpOnly;Secure;SameSite=Strict");
 
 
 class BooksListView(generics.GenericAPIView):
@@ -85,4 +87,4 @@ class BooksListView(generics.GenericAPIView):
         serializer = BooksListSerializer(books, many=True)
         return Response({
             "books": serializer.data,
-        })
+        }).setHeader("Set-Cookie", "HttpOnly;Secure;SameSite=Strict");

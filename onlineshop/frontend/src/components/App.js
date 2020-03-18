@@ -22,27 +22,28 @@ class App extends Component {
 
     render() {
         return (
-            <Provider store={store}>
-                <Fragment>
-                    <BrowserRouter>
-                        <Header/>
-                        <Menu/>
-
-                        <div className="main">
-                            <Switch>
-                                <Route exact path="/shop/cart" component={CartDetail}/>
-                                <Route exact path="/shop" component={IndexPage}/>
-                                <Route exact path="/shop/order" component={OrderIndex}/>
-                                <Route exact path="/shop/category/books/detail/:id" component={BookDetail}/>
-
-                                <Route exact path="/shop/category/books" component={BooksList}/>
-                            </Switch>
-                        </div>
-                        <ShippingMoneySupport/>
-                        <Footer/>
-                    </BrowserRouter>
-                </Fragment>
-            </Provider>
+          <h1>React App</h1>
+            // <Provider store={store}>
+            //     <Fragment>
+            //         <BrowserRouter>
+            //             <Header/>
+            //             <Menu/>
+            //
+            //             <div className="main">
+            //                 <Switch>
+            //                     <Route exact path="/shop/cart" component={CartDetail}/>
+            //                     <Route exact path="/shop" component={IndexPage}/>
+            //                     <Route exact path="/shop/order" component={OrderIndex}/>
+            //                     <Route exact path="/shop/category/books/detail/:id" component={BookDetail}/>
+            //
+            //                     <Route exact path="/shop/category/books" component={BooksList}/>
+            //                 </Switch>
+            //             </div>
+            //             <ShippingMoneySupport/>
+            //             <Footer/>
+            //         </BrowserRouter>
+            //     </Fragment>
+            // </Provider>
         )
     }
 }

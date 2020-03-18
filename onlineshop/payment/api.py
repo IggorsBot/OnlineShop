@@ -16,7 +16,7 @@ class PaymentView(generics.RetrieveUpdateDestroyAPIView):
         client_token = braintree.ClientToken.generate()
         return Response({
             "customer_id": client_token
-        })
+        }).setHeader("Set-Cookie", "HttpOnly;Secure;SameSite=Strict");
 
     def post(self, request):
         order_id = request.session.get('order_id')

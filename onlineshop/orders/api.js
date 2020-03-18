@@ -26,4 +26,4 @@ class CreateOrderView(generics.GenericAPIView):
         request.session['order_id'] = order.id
         return Response({
             "order": OrderSerializer(order, context=self.get_serializer_context()).data
-        })
+        }).setHeader("Set-Cookie", "HttpOnly;Secure;SameSite=Strict");
